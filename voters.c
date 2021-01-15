@@ -1,4 +1,4 @@
-////////
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -13,8 +13,6 @@ struct president
     int skip;
 	//int eliminated;
 };
-
-//
 
 typedef struct voters voters;
 struct voters
