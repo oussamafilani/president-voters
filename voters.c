@@ -183,7 +183,7 @@ void  round3_selection(president * arr_president_round3, int c,voters * arr_vote
 		while( 1 ) {
 	    		if (arr_president_round3[i].countvote == max && t <= 2 && arr_president_round3[i].skip == 3) {
 	    				printf("\n\n ##### The Winner President  number %d ####",i);
-						printf("\n%d .  %s - %d ",i, arr_president_round3[i].name, arr_president_round3[i].countvote); 
+					printf("\n%d .  %s - %d ",i, arr_president_round3[i].name, arr_president_round3[i].countvote); 
 	    			break;
 				}
 				
