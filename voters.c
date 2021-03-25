@@ -238,8 +238,8 @@ void affiche_pre_round(president *  arr_president, int n)
 int main()
 {
 	
-	int MAX, MAXV ,choice ;
-	printf("Enter the number of list presidents :  ");
+    int MAX, MAXV ,choice ;
+    printf("Enter the number of list presidents :  ");
 	
     scanf("%d", &MAX);
     while (MAX < 5)
