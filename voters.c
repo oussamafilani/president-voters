@@ -262,7 +262,7 @@ int main()
 //********************************************
 
     voters* arr_voters;
-	arr_voters= (voters*)malloc(MAXV * sizeof(voters));	
+    arr_voters= (voters*)malloc(MAXV * sizeof(voters));	
     
     president* arr_president;
     arr_president= (president*)malloc(MAX * sizeof(president));
@@ -274,7 +274,7 @@ int main()
     arr_president_round3= (president*)malloc(MAX * sizeof(president));
     
 
-	vote_count_instial(arr_president,  MAX);
+    vote_count_instial(arr_president,  MAX);
     vote_count_instial(arr_president_round2,  MAX);
     vote_count_instial(arr_president_round3,  MAX);
  
