@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -17,7 +16,6 @@ struct president
 typedef struct voters voters;
 struct voters
 {
-    
     char cin[20];
 };
 
@@ -27,8 +25,7 @@ void vote_count_instial(president * arr_president, int MAX)
    
 	for(i = 0; i < MAX; i++ )
 	{
-		arr_president[i].countvote = 0;
-		            
+		arr_president[i].countvote = 0;	            
 	}
 }
 
@@ -42,9 +39,8 @@ void afficher(president * arr_president, int MAX)
    
 	for(i = 0; i < MAX; i++ )
 	{
-		printf("%d . %s\n",i+1, 
-		arr_president[i].name);
-		            
+        printf("%d . %s\n",i+1, 
+		arr_president[i].name);	            
 	}
 }
 
@@ -52,7 +48,6 @@ void saisire(president * arr_president, voters * arr_voters, int MAX,int MAXV)
 {
 	int i,j;
 
-    
     for( i = 0; i < MAX; i++ )
     {
         printf("\nEnter details of president %d\n\n", i+1);
@@ -74,8 +69,6 @@ void saisire(president * arr_president, voters * arr_voters, int MAX,int MAXV)
 
 void choix(president * arr_president, voters * arr_voters, int MAXV, int MAX)
 {
-	
-	
 	int i;
 	int choice;
 	
@@ -99,9 +92,7 @@ void choix(president * arr_president, voters * arr_voters, int MAXV, int MAX)
 				scanf("%d", &choice);
 			}
 
-	    
-			arr_president[choice-1].countvote++;
-					
+			arr_president[choice-1].countvote++;			
 		}
 		
 		
@@ -114,7 +105,6 @@ void choix(president * arr_president, voters * arr_voters, int MAXV, int MAX)
 					
 	}while(t == MAX);
 	    	
-	
 }
 
 
@@ -142,8 +132,7 @@ int  round1_selection(president *  arr_president, president * arr_president_roun
 	int s = 0;
 	int i;
 	for(i = 0; i < MAX; i++ )
-	{
-			
+	{		
 		arr_president[i].vote_per_cent = arr_president[i].countvote;
 		if(arr_president[i].vote_per_cent/MAXV*100 > 15)
 		{
@@ -152,8 +141,7 @@ int  round1_selection(president *  arr_president, president * arr_president_roun
 			
 			strcpy(arr_president_round2[s].name,arr_president[i].name);
 			s++;	
-		}
-			            
+		}		            
 	}
 	return s;
 	
@@ -175,9 +163,8 @@ int  round2_selection(president *  arr_president, president *  arr_president_rou
 			strcpy(arr_president_round3[c].name,arr_president_round2[i].name);
 			arr_president_round3[i].skip = 3;
 			c++;
-			}
-			        
-	}	
+			}	        
+	    }	
 	
 	return c;
 }
@@ -204,8 +191,7 @@ void  round3_selection(president * arr_president_round3, int c,voters * arr_vote
 				vote_count_instial(arr_president_round3, c);
 				choix(arr_president_round3,arr_voters, MAXV, c);
 				round3_selection(arr_president_round3, c,arr_voters, MAXV);
-			}
-				
+			}		
 		        
 	}
 }
@@ -276,8 +262,7 @@ int main()
 //********************************************
 
     voters* arr_voters;
-	arr_voters= (voters*)malloc(MAXV * sizeof(voters));
-	
+	arr_voters= (voters*)malloc(MAXV * sizeof(voters));	
     
     president* arr_president;
     arr_president= (president*)malloc(MAX * sizeof(president));
@@ -309,8 +294,6 @@ int main()
 	
    //Round 1 
 	printf("\n\n ### Round 2 Please choose your president ####\n\n");
-
-
 	affiche_pre_round(arr_president_round2, s);
 
 
@@ -321,32 +304,20 @@ int main()
 	
 	choix(arr_president_round2,arr_voters, MAXV, s);
   
-
- 
 	int c =  round2_selection(arr_president, arr_president_round2, arr_president_round3,s,MAXV);
 		
-	
+
+    //Round 3
 		
-//Round 3
-		
-	printf("\n\n ### Round 3 Please choose your president ####\n\n");
-    
-	affiche_pre_round(arr_president_round3, c);
-   
-   
+	printf("\n\n ### Round 3 Please choose your president ####\n\n"); 
+	affiche_pre_round(arr_president_round3, c); 
 	
 	printf("\nRound 3 Input your choice (1 - %d) : \n",c);
-	
 	choix(arr_president_round3,arr_voters, MAXV, c);
-  
 
-	
-	
 	round3_selection(arr_president_round3, c, arr_voters, MAXV);
 	
-	
 //********************************************
-    
 
     return 0;
 }
